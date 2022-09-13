@@ -64,13 +64,13 @@
 			<div class="row">
 				<!-- 쇼핑몰 카드 반복부분 -->
 				<%
-				for (int i = 0; i < 8; i++) {
+				for (int i = 0; i < 5; i++) {
 					/* 로그인 했을 경우 */
 					if (info != null) {
 				%>
 
 				<div class="col-md-auto">
-					<div class="card" style="width: 15rem;">
+					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
 						<div class="card-body">
 							<h5 class="card-title">Mr.Street</h5>
@@ -86,7 +86,8 @@
 								<img src="image/star.png" style="width: 50px; height: 50px"
 									class="star" onclick="Change(this)"
 									value="<%=clothList.get(i).getNumber()%>">
-								<%//(로그인상태) 북마크 등록 하지 않았을 경우
+								<%
+								//(로그인상태) 북마크 등록 하지 않았을 경우
 								} else {
 								%>
 								<img src="image/star.gif" style="width: 50px; height: 50px"
@@ -98,9 +99,24 @@
 
 
 							</div>
+							<!-- 댓글 영역 -->
+							<div>
+
+								<strong><span style="font-size: 13px">작성자</span></strong> <span>댓글
+									내용</span>
+							</div>
+
 
 						</div>
+						<div style="display: inline-block; veritcal-algin: bottom;">
+							<input class="replyUpload"
+								style="display: inline-block; veritcal-algin: bottom; width: 100%"
+								type="text" placeholder="한줄 평을 입력해주세요">
+						</div>
+
+
 					</div>
+
 
 
 				</div>
@@ -108,12 +124,11 @@
 				<%
 				/* 로그인 했을 경우 카드생성 종료 */
 
-				
 				//로그인 하지 않았을 경우
 				} else {
 				%>
 				<div class="col-md-auto">
-					<div class="card" style="width: 15rem;">
+					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
 						<div class="card-body">
 							<h5 class="card-title">Mr.Street</h5>
@@ -128,8 +143,19 @@
 
 
 							</div>
+							<!-- 댓글 영역 -->
+							<div>
+								<strong><span style="font-size: 13px">작성자</span></strong> <span>댓글
+									내용</span>
+							</div>
+
 
 						</div>
+						<div style="display: inline-block; veritcal-algin: bottom;">
+							<input class = "replyUpload" style="display: width:100%;" type="text"
+								placeholder="한줄 평을 입력해주세요">
+						</div>
+
 					</div>
 
 
@@ -200,6 +226,9 @@
       
     <%}%>
 	
+    function replyUpload(){
+    	let
+    }
 	</script>
 </body>
 </html>
