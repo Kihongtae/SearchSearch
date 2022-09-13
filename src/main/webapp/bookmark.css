@@ -11,36 +11,40 @@
     font-family: 'GmarketSansMedium', 'Arial';
 }
 
-body {
+body{
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(rgba(253, 247, 231, 0.8),
-            rgba(253, 247, 231, 0.8)), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/bookmarkback.jpg?raw=true);
-}
+    background-image: linear-gradient(
+      rgba(221, 221, 221, 0.7),
+      rgba(221, 221, 221, 0.7)
+    ), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/bookmark_02.jpg?raw=true);
+  }
 
-.btn.btn-primary {
+.btn.btn-primary{
     margin-top: 5px;
-    background-color: #cecece;
-    border: 1px solid #f6f6f6;
-    color: rgb(255, 255, 255);
+    background-color: #7DCAED;
+    border: 1px solid #B8B8B8;
+    color: white;
+    padding-top: 10px;
+    box-shadow: 1px 1px 5px #71B7D6;
 }
 
-.btn.btn-primary:hover {
-    background-color: #8f8f8f;
-    border: 1px solid #c8c8c8;
+.btn.btn-primary:hover{
+    background-color: #104a8c;
+    border: 1px solid #6F8DBD;
     color: white;
 }
 
 .btn.btn-info {
     margin-top: 30px;
-    color: rgb(49, 49, 49);
-    background-color: rgb(226, 226, 226);
+    color: white;
+    background-color: #7DCAED;
     border: 1px solid rgb(222, 222, 222);
-    box-shadow: 1px 1px 1px rgb(213, 213, 213);
+    box-shadow: 1px 1px 2px #9C9C9C;
 }
 
 .btn.btn-info:hover {
-    background-color: #b4b4b4;
+    background-color: #104a8c;
     color: white;
 }
 
@@ -64,3 +68,14 @@ body {
 .card img {
     height: 100%;
 }
+
+  .navbar{
+    color: #104a8c;
+  }
+  .navbar-brand>a{
+    float: right;
+  }
+  .navbar-brand>h4{
+    margin-left: 170px;
+    margin-top: 9px;
+  }
