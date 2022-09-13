@@ -56,5 +56,9 @@ body{
     box-shadow: 1px 1px 1px rgb(213, 213, 213);
 }
 
+.replyAuthor {
+	font-size:13px;
+	font-weight:bold;
+}
 
 

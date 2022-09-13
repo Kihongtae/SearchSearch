@@ -15,7 +15,6 @@
 	userDTO info = (userDTO) session.getAttribute("info");
 	List<clothDTO> clothList = new bookMarkDAO().showBookmark(info.getUserId());
 
-	int pageNum = Integer.valueOf(request.getParameter("page"));
 	%>
 	<!DOCTYPE html>
 <html lang="ko">
@@ -62,7 +61,6 @@
 			</label>
 		</div>
 	</div>
-	<p><%=pageNum%></p>
 
 
 	<!-- 이미지와 체크박스 -->
@@ -107,9 +105,6 @@
 
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link"
-				href="http://localhost:8081/searchsearch/bookmark.jsp?page=<%=pageNum - 1%>">Previous</a>
-			</li>
 			<li class="page-item"><a class="page-link"
 				href="http://localhost:8081/searchsearch/bookmark.jsp?page=1">1</a></li>
 			<li class="page-item"><a class="page-link"

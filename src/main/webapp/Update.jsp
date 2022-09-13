@@ -45,7 +45,6 @@
             <form class="d-flex">
                 <div class="btn-group">
                     <a class="btn btn-primary d-grid mx-auto" href="update.html" role="button">정보수정</a>
-                    <a class="btn btn-primary d-grid mx-auto" href="Login.jsp" role="button">로그인</a>
                     <a class="btn btn-primary d-grid mx-auto" href="bookmark.jsp" role="button">즐겨찾기</a> 
                 </div>
             </form>

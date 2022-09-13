@@ -82,7 +82,7 @@ function loginCheck(){
 		success : (result) => {
 			if(result=='success'){
 				console.log("로그인 성공");
-				location.href = "Main.jsp";
+				location.href = "index.jsp";
 		}else{
 			console.log('로그인 실패');
 			$('#loginCheck').html('회원정보가 일치하지 않습니다.');

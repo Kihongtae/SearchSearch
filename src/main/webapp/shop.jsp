@@ -100,9 +100,9 @@
 
 							</div>
 							<!-- 댓글 영역 -->
-							<div>
+							<div class = "replyBox">
 
-								<strong><span style="font-size: 13px">작성자</span></strong> <span>댓글
+							<span class="replyAuthor" >작성자</span> <span class="replyContent">댓글
 									내용</span>
 							</div>
 
@@ -112,6 +112,7 @@
 							<input class="replyUpload"
 								style="display: inline-block; veritcal-algin: bottom; width: 100%"
 								type="text" placeholder="한줄 평을 입력해주세요">
+								<button type=button onclick="replyUpload()">전송</button>
 						</div>
 
 
@@ -145,7 +146,7 @@
 							</div>
 							<!-- 댓글 영역 -->
 							<div>
-								<strong><span style="font-size: 13px">작성자</span></strong> <span>댓글
+								<span class="replyAuthor" >작성자</span> <span class="replyContent">댓글
 									내용</span>
 							</div>
 
@@ -227,7 +228,13 @@
     <%}%>
 	
     function replyUpload(){
-    	let
+    	let reply = $(".replyUpload").val();
+    	console.log(reply);
+    	replyBox = $(".replyBox");
+    	
+    	replyBox.prepend('<span class="replyAuthor">작성자</span> <span class="replyContent">'+reply+'</span><br>');
+    	$(".replyUpload").val("");
+    	
     }
 	</script>
 </body>
