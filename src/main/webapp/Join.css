@@ -9,6 +9,11 @@
     padding: 0;
     font-family: 'GmarketSansMedium','Arial';
   }
+  
+  p{
+	font-size:13px;
+	margin-top:5px;
+ }
   a {
     text-decoration: none;
   }
@@ -16,9 +21,9 @@
     background-size: cover;
     background-position: center;
     background-image: linear-gradient(
-      rgba(221, 221, 221, 0.8),
-      rgba(221, 221, 221, 0.8)
-    ), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/join_image.jpg?raw=true);
+      rgba(221, 221, 221, 0.7),
+      rgba(221, 221, 221, 0.7)
+    ), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/join_image_01.jpg?raw=true);
   }
   .navbar{
     color: #104a8c;
@@ -27,8 +32,8 @@
     float: right;
   }
   .navbar-brand>h4{
-    margin-left: 135px;
-    margin-top: 5px;
+    margin-left: 170px;
+    margin-top: 9px;
   }
   .btn.btn-outline-primary{
     color: #104a8c;;
@@ -41,9 +46,11 @@
   }
   .btn.btn-primary{
     margin-top: 5px;
-    background-color: #71A7D4;
-    border: 1px solid #B1B8ED;
+    background-color: #7DCAED;
+    border: 1px solid #B8B8B8;
     color: white;
+    padding-top: 10px;
+    box-shadow: 1px 1px 5px #B1B8ED;
   }
   .btn.btn-primary:hover{
     background-color: #104a8c;

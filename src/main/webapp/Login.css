@@ -16,9 +16,9 @@
     background-size: cover;
     background-position: center;
     background-image: linear-gradient(
-      rgba(221, 221, 221, 0.8),
-      rgba(221, 221, 221, 0.8)
-    ), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/join_image.jpg?raw=true);
+      rgba(221, 221, 221, 0.7),
+      rgba(221, 221, 221, 0.7)
+    ), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/login_image.jpg?raw=true);
   }
   .navbar{
     color: #104a8c;
@@ -27,8 +27,8 @@
     float: right;
   }
   .navbar-brand>h4{
-    margin-left: 135px;
-    margin-top: 5px;
+    margin-left: 170px;
+    margin-top: 9px;
   }
   .btn.btn-outline-primary{
     color: #104a8c;
@@ -39,14 +39,16 @@
     color: white;
     border: 1px solid #104a8c;
   }
-  .btn.btn-primary{
+.btn.btn-primary{
     margin-top: 5px;
-    background-color: #71A7D4;
-    border: 1px solid #B1B8ED;
+    background-color: #7DCAED;
+    border: 1px solid #B8B8B8;
     color: white;
-  }
-  .btn.btn-primary:hover{
+    padding-top: 10px;
+    box-shadow: 1px 1px 5px #71B7D6;
+}
+.btn.btn-primary:hover{
     background-color: #104a8c;
     border: 1px solid #6F8DBD;
     color: white;
-  }
+}

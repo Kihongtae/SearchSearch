@@ -8,16 +8,6 @@
 <html lang="KR">
 
 <head>
-<style>
-input {
-	border: none;
-	border-right: 0px;
-	border-bottom: 0px;
-	border-left: 0px;
-	border-top: 0px
-}
-</style>
-
 <script src="Main.js"></script>
 <link href="Main.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
@@ -39,9 +29,14 @@ input {
 history.scrollRestoration = "manual";
 
 </script>
+<style>
+.btn-outline-secondary:hover {
+	background-color: #104a8c;
+	color: white;
+}	
+</style>
+
 </head>
-
-
 <body>
 	<%
 	userDTO user = (userDTO) session.getAttribute("info");
@@ -51,14 +46,14 @@ history.scrollRestoration = "manual";
 	<nav class="navbar">
 		<div class="container-fluid">
 			<div class="navbar-brand ml-1;">
-				<a href="index.jsp" target="_self"><img
-					src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true"
-					width=60% alt="searchsearch" class="d-inline-block align-text-top"></a>
+				<a href="index.jsp" target="_self">
+				<img src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true"
+					width=50% alt="searchsearch" class="d-inline-block align-text-top"></a>
+					<h4>업로드</h4>
 			</div>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 
 			<div class="btn-group">
-
 
 				<%
 				if (user == null) {
