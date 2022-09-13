@@ -1,3 +1,5 @@
+<%@page import="searchModel.replyDAO"%>
+<%@page import="searchModel.replyDTO"%>
 <%@page import="searchModel.userDTO"%>
 <%@page import="searchModel.bookMarkDTO"%>
 <%@page import="java.util.List"%>
@@ -29,6 +31,7 @@
 	String clothType = request.getParameter("clothType");
 	List<clothDTO> clothList = new clothDAO().show(clothType);
 	userDTO info = (userDTO) session.getAttribute("info");
+	List<replyDTO> replyList = null;
 	if (info != null) {
 		List<clothDTO> bookMarkList = new bookMarkDAO().showBookmark(info.getUserId());
 
@@ -72,7 +75,7 @@
 				<div class="col-md-auto">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
-						<div class="card-body" value="<%=clothList.get(i).getNumber() %>">
+						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
 							<h5 class="card-title">Mr.Street</h5>
 							<p class="card-text">모노 바람막이 점퍼</p>
 							<a href="https://mr-s.co.kr/index.html" target="_blank"
@@ -100,10 +103,14 @@
 
 							</div>
 							<!-- 댓글 영역 -->
-							<div class = "replyBox">
+							<div class="replyBox" value=<%=clothList.get(i).getNumber() %>>
 
-							<span class="replyAuthor" >작성자</span> <span class="replyContent">댓글
-									내용</span>
+								<%replyList =  new replyDAO().showReply(clothList.get(i).getNumber());
+								if(replyList!=null){
+								for(int j=0; j<replyList.size();j++){ %>
+								<span class="replyAuthor"><%=replyList.get(j).getUserId() %></span> <span class="replyContent"><%=replyList.get(j).getContent()%>
+									</span><br>
+									<%}} %>
 							</div>
 
 
@@ -111,8 +118,9 @@
 						<div style="display: inline-block; veritcal-algin: bottom;">
 							<input class="replyUpload"
 								style="display: inline-block; veritcal-algin: bottom; width: 100%"
-								type="text" placeholder="한줄 평을 입력해주세요">
-								<button type=button onclick="replyUpload()">전송</button>
+								type="text" idx="<%=clothList.get(i).getNumber() %>" placeholder="한줄 평을 입력해주세요">
+							<button type=button value="<%=clothList.get(i).getNumber()%>"
+								onclick="replyUpload(this)">전송</button>
 						</div>
 
 
@@ -131,7 +139,7 @@
 				<div class="col-md-auto">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
-						<div class="card-body" value="<%=clothList.get(i).getNumber() %>">
+						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
 							<h5 class="card-title">Mr.Street</h5>
 							<p class="card-text">모노 바람막이 점퍼</p>
 							<a href="https://mr-s.co.kr/index.html" target="_blank"
@@ -146,15 +154,16 @@
 							</div>
 							<!-- 댓글 영역 -->
 							<div>
-								<span class="replyAuthor" >작성자</span> <span class="replyContent">댓글
-									내용</span>
+								
 							</div>
 
 
 						</div>
 						<div style="display: inline-block; veritcal-algin: bottom;">
-							<input class = "replyUpload" style="display: width:100%;" type="text"
-								placeholder="한줄 평을 입력해주세요">
+							<input class="replyUpload" style="display: width:100%;"
+								type="text" placeholder="한줄 평을 입력해주세요">
+							<button type=button value="<%=clothList.get(i).getNumber()%>"
+								onclick="replyUpload(this)">전송</button>
 						</div>
 
 					</div>
@@ -227,16 +236,33 @@
       
     <%}%>
 	
-    function replyUpload(){
-    	let reply = $(".replyUpload").val();
-    	let clNumber = $(".card-body")
-    	console.log(reply);
-    	replyBox = $(".replyBox");
+    function replyUpload(e){
     	
-    	replyBox.prepend('<span class="replyAuthor"><%=info.getUserId()%></span> <span class="replyContent">'+reply+'</span><br>');
+    	let clNumber = $(e).attr('value');
+    	let content = $(".replyUpload[idx="+clNumber+"]").val();
+    	let userId = "<%=info.getUserId()%>";
+    	
+    	replyBox = $(".replyBox[value="+clNumber+"]"); 
+    	
+    	
+    	$.ajax({
+			//요청 경로 url
+			url:'addReplyCon.do',
+			//요청 데이터(사용자가 입력한 댓글, 게시물번호)
+		//json 방식 {key:value(실제값)}
+			data:{'clNumber':clNumber, 'content':content, 'userId' : userId},
+		//요청 방식 지정 type(html-form태그의 method)(get/post) 따로 지정 안해주면 get방식
+			type: 'get',
+			success : (data) => {
+							//append : 요소 내에 마지막에 추가
+					//prepend : 요소 내에 첫번째에 추가
+    	replyBox.prepend('<span class="replyAuthor"><%=info.getUserId()%></span> <span class="replyContent">'+content+'</span><br>');
     	$(".replyUpload").val("");
+				
+				},
+			error : (data) => alert('fail')
+		});
     	
-    	console.log(clNumber);
     	
     	
     }

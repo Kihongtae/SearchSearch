@@ -25,7 +25,11 @@ select * from t_clothes where cl_type = #{type}
 </update>
 
 <insert id="addReply" parameterType="replyDTO">
- insert into t_reply values(#{clNumber}, #{userId}, #{content})
+ insert into t_reply values(#{clNum}, #{userId}, #{content})
 </insert>
+
+<select id = "showReply" parameterType="int" resultType="replyDTO">
+select * from t_reply where cl_seq = #{clNum}
+</select>
 
 </mapper>

@@ -1,10 +1,10 @@
 package searchModel;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 @AllArgsConstructor
-@Data
+@Getter
 public class replyDTO {
 
 	private int clNum;

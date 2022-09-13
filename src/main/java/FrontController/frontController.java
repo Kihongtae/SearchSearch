@@ -16,6 +16,7 @@ import searchController.Command;
 import searchController.JoinCon;
 import searchController.LoginCon;
 import searchController.UpdateCon;
+import searchController.addReplyCon;
 import searchController.deleteCon;
 import searchController.idCheckCon;
 import searchController.pwCheckCon;
@@ -62,6 +63,8 @@ public class frontController extends HttpServlet {
 			con = new deleteCon();
 		} else if (uri.equals("UpdateCon.do")) {
 			con = new UpdateCon();
+		}else if(uri.equals("addReplyCon.do")) {
+			con = new addReplyCon();
 		}
 
 		if (uri.equals("testCon.do")) {
