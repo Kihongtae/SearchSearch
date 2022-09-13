@@ -12,6 +12,29 @@
     font-family: 'GmarketSansMedium', 'Arial';
 }
 
+ .navbar{
+    color: #104a8c;
+  }
+  .navbar-brand>a{
+    float: right;
+  }
+  .navbar-brand>h4{
+    margin-left: 170px;
+    margin-top: 9px;
+  }
+  .btn.btn-primary{
+    color: white;
+    margin-top: 5px;
+    background-color: #7DCAED;
+    border: 1px solid #B8B8B8;
+    padding-top: 10px;
+    box-shadow: 1px 1px 5px #B1B8ED;
+  }
+  .btn.btn-primary:hover{
+    background-color: #104a8c;
+    border: 1px solid #6F8DBD;
+    color: white;
+  }
 form.d-flex a:hover {
     color: rgb(93, 103, 179);
 }
@@ -82,12 +105,15 @@ form.d-flex a:hover {
     color: white;
     margin-top: 40px;
     margin-bottom: 20px;
-    background-color: #2b5584;
+    background-color: #70B4D4;    
     border: 2px solid rgb(181, 181, 181);
+    box-shadow: 1px 1px 1px #629FBA;
 }
 
 .btn.btn-default.main_cloth:hover {
-    background-color: #123462;
+    background-color: #7DCAED;
+    color: #3F6678;
+ 
 }
 
 .col_under {

@@ -10,12 +10,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>searchsearch - 회원 정보 수정</title>
     <link rel="stylesheet" href="Update.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>        
+<style>
+.btn.btn-primary{
+    margin-top: 5px;
+    background-color: #7DCAED;
+    border: 1px solid #B8B8B8;
+    color: white;
+    padding-top: 10px;
+    box-shadow: 1px 1px 5px #71B7D6;
+}
+.btn.btn-primary:hover{
+    background-color: #104a8c;
+    border: 1px solid #6F8DBD;
+    color: white;
+}
+</style>
+
+
 </head>
 
 <body>
@@ -24,7 +37,7 @@
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-brand ml-1">
-                <a href="index.jsp" target="_self"><img src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true" width=40%
+                <a href="index.jsp" target="_self"><img src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true" width=50%
                     alt="searchsearch" class="d-inline-block align-text-top"></a>
                     <h4>정보수정</h4>
             </div>
@@ -79,8 +92,8 @@
           <p class="text-center text-muted">&copy; 2022 searchsearch Company, Inc</p>
         </footer>
       </div>
-
  </form>
+ 
  
  <script>
  const pwCheck = () =>{

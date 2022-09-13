@@ -17,6 +17,9 @@
             rgba(237, 235, 223, 0.8)), url(https://github.com/yoonseo1004/yoonseo/blob/main/images/main_back.jpg?raw=true);
             background-size: cover;
         }
+        .btn.btn-primary{
+        	color: white;
+        }
     </style>
 </head>
 
@@ -29,24 +32,26 @@
             <div class="navbar-brand ml-1">
                 <a href="index.jsp" target="_self"><img src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true" width=50%
                     alt="searchsearch" class="d-inline-block align-text-top"></a>
+                    <h4>Main</h4>
+                   
             </div>
-            
-            
             <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
             <form class="d-flex">
+            <div class="btn-group">
             <%if(info==null){ %>
-                <a class="top_button btn btn-dafult d-grid mx-auto"
+                <a class="top_button btn btn-primary d-grid mx-auto"
                     href="Login.jsp" role="button">로그인</a>
-                <a class="btn btn-dafult d-grid mx-auto" href="Join.jsp"
+                <a class="btn btn-primary d-grid mx-auto" href="Join.jsp"
                     role="button">회원가입</a>
                     <%}else{ %>
-                    <a class="top_button btn btn-dafult d-grid mx-auto"
+                    <a class="top_button btn btn-primary d-grid mx-auto"
                     href="Update.jsp" role="button">정보수정</a>
-                     <a class="top_button btn btn-dafult d-grid mx-auto"
+                     <a class="top_button btn btn-primary d-grid mx-auto"
                     href="bookmark.jsp" role="button">즐겨찾기</a>
-                <a class="btn btn-dafult d-grid mx-auto" href="deleteCon.do"
+                <a class="btn btn-primary d-grid mx-auto" href="deleteCon.do"
                     role="button">로그아웃</a>
                     <%} %>
+             </div>
             </form>
         </div>
     </nav>
