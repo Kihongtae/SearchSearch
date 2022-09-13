@@ -8,6 +8,7 @@
 		<typeAlias type="searchModel.userDTO" alias="userDTO" />
 		<typeAlias type="searchModel.bookMarkDTO" alias="bookMarkDTO" />
 		<typeAlias type="searchModel.clothDTO" alias="clothDTO" />
+		<typeAlias type="searchModel.replyDTO" alias="replyDTO" />
 
 	</typeAliases>
 	<environments default="development">

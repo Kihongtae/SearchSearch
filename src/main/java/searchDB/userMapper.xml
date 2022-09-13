@@ -24,4 +24,8 @@ select * from t_clothes where cl_type = #{type}
 	update t_user set user_pw=#{userPw}, user_name=#{userName} where user_id = #{userId}
 </update>
 
+<insert id="addReply" parameterType="replyDTO">
+ insert into t_reply values(#{clNumber}, #{userId}, #{content})
+</insert>
+
 </mapper>

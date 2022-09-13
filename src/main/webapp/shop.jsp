@@ -72,7 +72,7 @@
 				<div class="col-md-auto">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
-						<div class="card-body">
+						<div class="card-body" value="<%=clothList.get(i).getNumber() %>">
 							<h5 class="card-title">Mr.Street</h5>
 							<p class="card-text">모노 바람막이 점퍼</p>
 							<a href="https://mr-s.co.kr/index.html" target="_blank"
@@ -131,7 +131,7 @@
 				<div class="col-md-auto">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
-						<div class="card-body">
+						<div class="card-body" value="<%=clothList.get(i).getNumber() %>">
 							<h5 class="card-title">Mr.Street</h5>
 							<p class="card-text">모노 바람막이 점퍼</p>
 							<a href="https://mr-s.co.kr/index.html" target="_blank"
@@ -229,11 +229,15 @@
 	
     function replyUpload(){
     	let reply = $(".replyUpload").val();
+    	let clNumber = $(".card-body")
     	console.log(reply);
     	replyBox = $(".replyBox");
     	
-    	replyBox.prepend('<span class="replyAuthor">작성자</span> <span class="replyContent">'+reply+'</span><br>');
+    	replyBox.prepend('<span class="replyAuthor"><%=info.getUserId()%></span> <span class="replyContent">'+reply+'</span><br>');
     	$(".replyUpload").val("");
+    	
+    	console.log(clNumber);
+    	
     	
     }
 	</script>
