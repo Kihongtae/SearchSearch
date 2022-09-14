@@ -9,7 +9,7 @@ public class clothDTO {
 
 	private int number;
 	private String type;
-	private String stie;
+	private String site;
 	private String filename;
 	private String look;
 }

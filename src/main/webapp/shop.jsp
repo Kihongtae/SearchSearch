@@ -53,8 +53,8 @@
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 				<form class="d-flex">
 					<div class="btn-group">
-						<a class="btn btn-primary d-grid mx-auto" href="#" role="button">로그인</a>
-						<a class="btn btn-primary d-grid mx-auto" href="#" role="button">즐겨찾기</a>
+						<a class="btn btn-primary d-grid mx-auto" href="Login.jsp" role="button">로그인</a>
+						<a class="btn btn-primary d-grid mx-auto" href="bookmark.jsp" role="button">즐겨찾기</a>
 					</div>
 				</form>
 			</div>
@@ -143,7 +143,7 @@
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
 							<h5 class="card-title">Mr.Street</h5>
 							<p class="card-text">모노 바람막이 점퍼</p>
-							<a href="https://mr-s.co.kr/index.html" target="_blank"
+							<a href="<%=clothList.get(i).getSite() %>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
 							<div class="bookmark checked">
 
@@ -155,16 +155,18 @@
 							</div>
 							<!-- 댓글 영역 -->
 							<div>
-								
+								<%replyList =  new replyDAO().showReply(clothList.get(i).getNumber());
+								if(replyList!=null){
+								for(int j=0; j<replyList.size();j++){ %>
+								<span class="replyAuthor"><%=replyList.get(j).getUserId() %></span> <span class="replyContent"><%=replyList.get(j).getContent()%>
+									</span><br>
+									<%}} %>
 							</div>
 
 
 						</div>
 						<div style="display: inline-block; veritcal-algin: bottom;">
-							<input class="replyUpload" style="display: width:100%;"
-								type="text" placeholder="한줄 평을 입력해주세요">
-							<button type=button value="<%=clothList.get(i).getNumber()%>"
-								onclick="replyUpload(this)">전송</button>
+							
 						</div>
 
 					</div>
@@ -263,13 +265,14 @@
       }
       
     <%}%>
-	
+	<%if(info!=null){%>
     function replyUpload(e){
     	
     	let clNumber = $(e).attr('value');
     	let content = $(".replyUpload[idx="+clNumber+"]").val();
+    
     	let userId = "<%=info.getUserId()%>";
-    	
+    
     	replyBox = $(".replyBox[value="+clNumber+"]"); 
     	
     	
@@ -294,6 +297,7 @@
     	
     	
     }
+	<%}%>
 	</script>
 </body>
 </html>
