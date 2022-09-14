@@ -25,7 +25,14 @@
 <script class="jsbin"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <style>
-.col-md-auto
+.card{
+background-color: rgba(255, 255, 255, 0.2);
+}
+.row {
+	margin: auto;
+	margin-left: 100px;
+	margin-right: 100px;
+}
 </style>
 
 </head>

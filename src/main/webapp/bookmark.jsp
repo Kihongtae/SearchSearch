@@ -28,6 +28,10 @@ List<clothDTO> clothList = new bookMarkDAO().showBookmark(info.getUserId());
 <link rel="stylesheet" href="bookmark.css">
 <script class="jsbin"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<style>
+
+</style>
+
 </head>
 <body>
 

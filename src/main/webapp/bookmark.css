@@ -39,7 +39,7 @@ body{
     margin-top: 30px;
     color: white;
     background-color: #7DCAED;
-    border: 1px solid rgb(222, 222, 222);
+    border: 1px solid #69AAC7;
     box-shadow: 1px 1px 2px #9C9C9C;
 }
 
@@ -48,6 +48,23 @@ body{
     color: white;
 }
 
+.btn.btn-info.rebutton{
+	width: 350px;
+    font-size: 20px;
+    margin-bottom: 80px;
+    margin: auto;
+    color: white;
+    background-color: #7DCAED;
+    border: 1px solid rgb(194, 194, 194);
+    box-shadow: 0 0 2px rgb(213, 213, 213);
+}
+.btn.btn-info.rebutton:hover{
+    color: #ffffff;
+    background-color: #104a8c;    
+    border: 2px solid rgb(194, 194, 194);
+    box-shadow: 1px 1px 2px rgb(213, 213, 213);
+}	
+	
 .pagination {
     margin-top: 100px;
 }
@@ -63,13 +80,19 @@ body{
 .card {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 4px;
+    margin-bottom: 60px;
 }
 
 .card img {
     height: 100%;
 }
+.row {
+	margin: auto;
+	margin-left: 100px;
+	margin-right: 100px;
+}
 
-  .navbar{
+.navbar{
     color: #104a8c;
   }
   .navbar-brand>a{
