@@ -50,13 +50,13 @@ List<clothDTO> clothList = new bookMarkDAO().showBookmark(info.getUserId());
 					<h4>추천 쇼핑몰</h4>
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
-				<form class="d-flex">
+			
 					<div class="btn-group">
-						<form action="deleteCon.do">
+						<a href="deleteCon.do">
 							<button class="btn btn-primary d-grid mx-auto" type=submit">로그아웃</button>
-						</form>
+					</a>
 					</div>
-				</form>
+			
 			</div>
 		</nav>
 

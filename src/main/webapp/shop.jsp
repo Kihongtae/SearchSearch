@@ -222,7 +222,7 @@ background-color: rgba(255, 255, 255, 0.2);
 
 		<!-- 하단 버튼 -->
 		<div class="d-grid gap-2 col-4 mx-auto">
-			<a class="btn btn-info rebutton" href="Main.jsp" role="button">photo
+			<a class="btn btn-info rebutton" href="index.jsp" role="button">photo
 				reuplode</a>
 		</div>
 	</div>
