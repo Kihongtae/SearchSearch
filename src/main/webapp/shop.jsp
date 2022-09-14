@@ -122,7 +122,7 @@
 							<input class="replyUpload"
 								style="display: inline-block; veritcal-algin: bottom; width: 100%"
 								type="text" idx="<%=clothList.get(i).getNumber() %>" placeholder="한줄 평을 입력해주세요">
-							<button type=button value="<%=clothList.get(i).getNumber()%>"
+							<button id=buttoncss type=button value="<%=clothList.get(i).getNumber()%>"
 								onclick="replyUpload(this)">전송</button>
 						</div>
 
@@ -149,7 +149,7 @@
 								class="btn btn-info">쇼핑몰 보러가기</a>
 							<div class="bookmark checked">
 
-								<img src="image/star.png" style="width: 50px; height: 50px"
+								<img src="image/star.png" style="width: 30px; height: 30px"
 									class="star" onclick="Change(this)"
 									value="<%=clothList.get(i).getNumber()%>">
 

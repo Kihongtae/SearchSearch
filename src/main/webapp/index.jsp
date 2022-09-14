@@ -25,6 +25,8 @@ body {
 .btn.btn-primary {
 	color: white;
 }
+
+
 </style>
 </head>
 
@@ -93,14 +95,14 @@ body {
 	</div>
 
 
+
+
 	<!-- 옷 사진 올리기 버튼 -->
-	<div class="d-grid gap-2 col-3 mx-auto">
-		<input type="checkbox" id="toggle" hidden> <label for="toggle"
-			class="toggleSwitch"> <span class="toggleButton"></span>
-		</label>
-		<button class="btn btn-default main_cloth" onclick="toMain()"
-			type="button">옷 사진 올리기</button>
+	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+  <a href="mansMain.jsp"><button class="btn btn-primary man" type="Man">Man</button></a>
+  <a href="grilsMain.jsp"><button class="btn btn-primary woman" type="Woman">Woman</button></a>
 	</div>
+
 
 
 

@@ -35,7 +35,7 @@ body{
     color: white;
 }
 .btn.btn-info{
-    margin-top: 5px;
+	margin: auto;
     background-color: #7DCAED;
     border: 1px solid #B8B8B8;
     color: white;
@@ -58,10 +58,7 @@ body{
 .col-md-auto{
 	margin-bottom: 20px;
 	
-	
 }
-
-
 .btn.btn-info.rebutton{
     font-size: 20px;
     margin-top: 50px;
@@ -96,4 +93,22 @@ body{
 .topbox{
 	margin: auto;
 }
+input[type="text"]{
+border-radius: 4px;
+border: 2px solid #BDBDBD;
+margin: auto;
+margin-bottom: 5px;
+}
+
+#buttoncss{
+border-radius: 4px;
+border: 2px solid #BDBDBD;
+box-shadow: 1px 1px 2px rgb(213, 213, 213);
+padding: 1px;
+color:#545454;
+width : 100px;
+margin: auto;
+}
+
+
 
