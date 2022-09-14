@@ -136,5 +136,27 @@ form.d-flex a:hover {
     color: #ffffff;
     text-shadow: 0 0 5px white;
 }
+.btn.btn-primary.man {
+    margin-top: 5px;
+    background-color: #92CFF5;
+    color: #FFFFFF;
+    width: 200px;
+}
 
+.btn.btn-primary.man:hover {
+    background-color: #8AC5E8;
+    border: 1px solid #548094;
+    color: white;
+}
+.btn.btn-primary.woman {
+    margin-top: 5px;
+    background-color: #F29BD6;
+    color: #FFFFFF;
+    width: 200px;
+}
 
+.btn.btn-primary.woman:hover {
+    background-color: #F5A3DC;
+    border: 1px solid #C47EAD;
+    color: white;
+}
