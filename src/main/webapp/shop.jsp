@@ -71,9 +71,15 @@ background-color: rgba(255, 255, 255, 0.2);
 							href="bookmark.jsp" role="button">즐겨찾기</a>
 							<div class="btn-group">
 					 <a class="btn btn-primary d-grid mx-auto"
-							href="bookmark.jsp" role="button">로그아웃</a>
+							href="deleteCon.do" role="button">로그아웃</a>
+					</div>
+					<%}else{	%>
+					<div class="btn-group">
+					 <a class="btn btn-primary d-grid mx-auto"
+							href="Login.jsp" role="button">로그인</a>
 					</div>
 					<%} %>
+					
 				</form>
 			</div>
 		</nav>

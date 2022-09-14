@@ -27,9 +27,10 @@
            
             <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
             <form class="d-flex">
+    
                 <div class="btn-group">
                     <a class="btn btn-primary d-grid mx-auto" href="Join.jsp" role="button">회원가입</a>
-                    <a class="btn btn-primary d-grid mx-auto" href="bookmark.jsp" role="button">즐겨찾기</a> 
+               
                 </div>
             </form>
         </div>
