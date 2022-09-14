@@ -48,6 +48,7 @@ body{
     color: white;
 }
 .card{
+	background-color: rgba(255, 255, 255, 0.2);
     padding: 4px;
     height: 100%;
     
@@ -55,11 +56,13 @@ body{
 .card img{
     border-radius: 10px;
 }
+
 .col-md-auto{
 	margin-bottom: 20px;
 	
 }
 .btn.btn-info.rebutton{
+	width: 350px;
     font-size: 20px;
     margin-top: 50px;
     margin-bottom: 80px;

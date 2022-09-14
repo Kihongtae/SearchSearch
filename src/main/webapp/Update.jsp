@@ -117,7 +117,7 @@
 					data:{'userPw2' : userPw2, 'userNickname' : userNickname},
 				//요청 방식 지정 type(html-form태그의 method)(get/post) 따로 지정 안해주면 get방식
 					type: 'get',
-					success : (data) => location.href="Main.jsp",
+					success : (data) => location.href="index.jsp",
 					error : (data) => alert("업데이트 실패")
 				});
 				
