@@ -9,8 +9,8 @@
 	<select id="login" parameterType="userDTO" resultType ="userDTO">
    select * from t_user where user_Id=#{userId} and user_Pw=#{userPw}
 </select>
-<select id="show" parameterType="String" resultType="searchModel.clothDTO">
-select * from t_clothes where cl_type = #{type}
+<select id="show" parameterType="clothDTO" resultType="searchModel.clothDTO">
+select * from t_clothes where cl_type = #{type} and cl_gender = #{gender}
 </select>
 
 <select id="idCheck" parameterType="String" resultType="String">

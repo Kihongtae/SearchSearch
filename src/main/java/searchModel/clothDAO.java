@@ -10,15 +10,14 @@ import searchDB.SqlSessionManager;
 public class clothDAO {
 	private SqlSessionFactory sqlSessionFactory = new SqlSessionManager().getSqlSession();
 
-	public List<clothDTO> show(String type) {
+	public List<clothDTO> show(clothDTO dto) {
 
 		SqlSession session = sqlSessionFactory.openSession(true);
 		
-		List<clothDTO> dto =  session.selectList("show", type);
-		System.out.println(dto);
+		List<clothDTO> clothList =  session.selectList("show", dto);
 
 		session.close();
-		return dto;
+		return clothList;
 
 	}
 }

@@ -7,7 +7,7 @@
 		insert into t_wishlist values(t_wishlist_seq.nextval, #{userId}, #{clNumber}, sysdate)
 	</insert>
 	<select id="showBookmark" parameterType="String" resultType="clothDTO">
-	select a.cl_seq, a.cl_type, a.cl_site, a.cl_img, a.cl_look from t_clothes a,(select * from t_user a2, t_wishlist b2 where a2.user_id = b2.user_id and a2.user_id = #{userId}) b where a.cl_seq = b.cl_seq
+	select a.cl_seq, a.cl_type, a.cl_site, a.cl_img, a.cl_look, a.cl_gender from t_clothes a,(select * from t_user a2, t_wishlist b2 where a2.user_id = b2.user_id and a2.user_id = #{userId}) b where a.cl_seq = b.cl_seq
 	</select>
 	<select id="checkBookmark" parameterType="bookMarkDTO" resultType="int">
 	select cl_seq from t_wishlist where user_id = #{userId} and cl_seq = #{clNumber}

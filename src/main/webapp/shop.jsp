@@ -29,7 +29,9 @@
 <body>
 	<%
 	String clothType = request.getParameter("clothType");
-	List<clothDTO> clothList = new clothDAO().show(clothType);
+	String gender = request.getParameter("gender");
+	clothDTO tmpDTO = new clothDTO(clothType, gender);
+	List<clothDTO> clothList = new clothDAO().show(tmpDTO);
 	userDTO info = (userDTO) session.getAttribute("info");
 	List<replyDTO> replyList = null;
 	if (info != null) {
@@ -68,7 +70,7 @@
 			<div class="row">
 				<!-- 쇼핑몰 카드 반복부분 -->
 				<%
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 6; i++) {
 					/* 로그인 했을 경우 */
 					if (info != null) {
 				%>
@@ -77,9 +79,9 @@
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
-							<h5 class="card-title">Mr.Street</h5>
-							<p class="card-text">모노 바람막이 점퍼</p>
-							<a href="https://mr-s.co.kr/index.html" target="_blank"
+							<h5 class="card-title"><%=clothList.get(i).getType() %></h5>
+							<p class="card-text">#<%=clothList.get(i).getLook().replace(" ", " #") %></p>
+							<a href="<%=clothList.get(i).getSite() %>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
 							<div class="bookmark checked">
 								<%
@@ -141,8 +143,8 @@
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
-							<h5 class="card-title">Mr.Street</h5>
-							<p class="card-text">모노 바람막이 점퍼</p>
+							<h5 class="card-title"><%=clothList.get(i).getType() %></h5>
+							<p class="card-text"><%=clothList.get(i).getLook() %></p>
 							<a href="<%=clothList.get(i).getSite() %>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
 							<div class="bookmark checked">
