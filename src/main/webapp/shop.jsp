@@ -44,7 +44,8 @@
 				<div class="navbar-brand ml-1">
 					<a href="index.jsp" target="_self"><img
 						src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true"
-						width=40% alt="searchsearch" class="d-inline-block align-text-top"></a>
+						width=50% alt="searchsearch" class="d-inline-block align-text-top"></a>
+						<h4>추천 쇼핑몰</h4>
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 				<form class="d-flex">
@@ -60,7 +61,7 @@
 
 
 		<!-- 쇼핑몰 카드 -->
-		<div class="container d-flex flex-row justify-content-center">
+		<div class="container d-flex flex-row justify-content-center topbox">
 			<div class="row">
 				<!-- 쇼핑몰 카드 반복부분 -->
 				<%
@@ -179,6 +180,33 @@
 				reuplode</a>
 		</div>
 	</div>
+	
+	
+	<!-- footer -->
+	<div class="container">
+		<footer class="py-3 my-4">
+			<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+				<li class="nav-item mb-4"></li>
+			</ul>
+			<p class="text-center text-muted">&copy; 2022 searchsearch
+				Company, Inc</p>
+		</footer>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<script>
 	  <%if (info == null) {%>
       function Change(e){
