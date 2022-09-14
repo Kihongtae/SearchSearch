@@ -25,7 +25,7 @@ select * from t_clothes where cl_type = #{type} and cl_gender = #{gender}
 </update>
 
 <insert id="addReply" parameterType="replyDTO">
- insert into t_reply values(#{clNum}, #{userId}, #{content})
+ insert into t_reply values(#{clNum}, #{userId}, #{content}, sysdate)
 </insert>
 
 <select id = "showReply" parameterType="int" resultType="replyDTO">

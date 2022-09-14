@@ -180,7 +180,7 @@ history.scrollRestoration = "manual";
         // More API functions here:
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
         // the link to your model provided by Teachable Machine export panel
-        const URL = "https://teachablemachine.withgoogle.com/models/H7TWyFpDk/";
+        const URL = "https://teachablemachine.withgoogle.com/models/cTdXWN3NU/";
         let model, labelContainer, maxPredictions;
         let i1 = document.getElementById("loading");
         // 토글로 남자인지 여자인지 체크하는 부분
@@ -233,7 +233,7 @@ history.scrollRestoration = "manual";
 				 
             }
             
-            $('#recommandCloth').attr("href", "shop.jsp?clothType="+prediction[0].className)
+            $('#recommandCloth').attr("href", "shop.jsp?clothType="+prediction[0].className+"&gender=여자")
         }
         
         function removePredict(){

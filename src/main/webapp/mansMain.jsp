@@ -233,7 +233,7 @@ history.scrollRestoration = "manual";
 				 
             }
             
-            $('#recommandCloth').attr("href", "shop.jsp?clothType="+prediction[0].className)
+            $('#recommandCloth').attr("href", "shop.jsp?clothType="+prediction[0].className+"&gender=남")
         }
         
         function removePredict(){
