@@ -47,7 +47,7 @@ List<clothDTO> clothList = new bookMarkDAO().showBookmark(info.getUserId());
 					<a href="index.jsp" target="_self"><img
 						src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true"
 						width=50% alt="searchsearch" class="d-inline-block align-text-top"></a>
-					<h4>추천 쇼핑몰</h4>
+					<h4>즐겨찾기</h4>
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 			
