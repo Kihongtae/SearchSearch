@@ -24,6 +24,10 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script class="jsbin"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<style>
+.col-md-auto
+</style>
+
 </head>
 
 <body>
@@ -50,13 +54,13 @@
 					<a href="index.jsp" target="_self"><img
 						src="https://github.com/yoonseo1004/yoonseo/blob/main/images/search_logo.png?raw=true"
 						width=50% alt="searchsearch" class="d-inline-block align-text-top"></a>
-						<h4>추천 쇼핑몰</h4>
+					<h4>추천 쇼핑몰</h4>
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 				<form class="d-flex">
 					<div class="btn-group">
-						<a class="btn btn-primary d-grid mx-auto" href="Login.jsp" role="button">로그인</a>
-						<a class="btn btn-primary d-grid mx-auto" href="bookmark.jsp" role="button">즐겨찾기</a>
+					 <a class="btn btn-primary d-grid mx-auto"
+							href="bookmark.jsp" role="button">즐겨찾기</a>
 					</div>
 				</form>
 			</div>
@@ -70,7 +74,7 @@
 			<div class="row">
 				<!-- 쇼핑몰 카드 반복부분 -->
 				<%
-				for (int i = 0; i < 6; i++) {
+				for (int i = 0; i < clothList.size(); i++) {
 					/* 로그인 했을 경우 */
 					if (info != null) {
 				%>
@@ -78,12 +82,14 @@
 				<div class="col-md-auto">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
+
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
-							<h5 class="card-title"><%=clothList.get(i).getType() %></h5>
-							<p class="card-text">#<%=clothList.get(i).getLook().replace(" ", " #") %></p>
-							<a href="<%=clothList.get(i).getSite() %>" target="_blank"
+							<h5 class="card-title"><%=clothList.get(i).getType()%></h5>
+							<p class="card-text">
+								#<%=clothList.get(i).getLook().replace(" ", " #")%></p>
+							<a href="<%=clothList.get(i).getSite()%>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
-							<div class="bookmark checked">
+							<div style="margin-top:3px;"class="bookmark checked">
 								<%
 								//(로그인상태) 북마크 등록을 해놓았을 경우
 								bookMarkDTO bookMark = new bookMarkDTO(info.getUserId(), clothList.get(i).getNumber());
@@ -106,23 +112,31 @@
 
 							</div>
 							<!-- 댓글 영역 -->
-							<div class="replyBox" value=<%=clothList.get(i).getNumber() %>>
+							<div class="replyBox" value=<%=clothList.get(i).getNumber()%>>
 
-								<%replyList =  new replyDAO().showReply(clothList.get(i).getNumber());
-								if(replyList!=null){
-								for(int j=0; j<replyList.size();j++){ %>
-								<span class="replyAuthor"><%=replyList.get(j).getUserId() %></span> <span class="replyContent"><%=replyList.get(j).getContent()%>
-									</span><br>
-									<%}} %>
+								<%
+								replyList = new replyDAO().showReply(clothList.get(i).getNumber());
+								if (replyList != null) {
+									for (int j = 0; j < replyList.size(); j++) {
+								%>
+								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
+								<span class="replyContent"><%=replyList.get(j).getContent()%>
+								</span><br>
+								<%
+								}
+								}
+								%>
 							</div>
 
 
 						</div>
 						<div style="display: inline-block; veritcal-algin: bottom;">
-							<input class="replyUpload"
+							<input onkeyup="enterkey()"class="replyUpload"
 								style="display: inline-block; veritcal-algin: bottom; width: 100%"
-								type="text" idx="<%=clothList.get(i).getNumber() %>" placeholder="한줄 평을 입력해주세요">
-							<button id=buttoncss type=button value="<%=clothList.get(i).getNumber()%>"
+								type="text" idx="<%=clothList.get(i).getNumber()%>"
+								placeholder="한줄 평을 입력해주세요">
+							<button id=buttoncss type=button
+								value="<%=clothList.get(i).getNumber()%>"
 								onclick="replyUpload(this)">전송</button>
 						</div>
 
@@ -142,10 +156,11 @@
 				<div class="col-md-auto">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
+
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
-							<h5 class="card-title"><%=clothList.get(i).getType() %></h5>
-							<p class="card-text"><%=clothList.get(i).getLook() %></p>
-							<a href="<%=clothList.get(i).getSite() %>" target="_blank"
+							<h5 class="card-title"><%=clothList.get(i).getType()%></h5>
+							<p class="card-text"><%=clothList.get(i).getLook()%></p>
+							<a href="<%=clothList.get(i).getSite()%>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
 							<div class="bookmark checked">
 
@@ -157,18 +172,24 @@
 							</div>
 							<!-- 댓글 영역 -->
 							<div>
-								<%replyList =  new replyDAO().showReply(clothList.get(i).getNumber());
-								if(replyList!=null){
-								for(int j=0; j<replyList.size();j++){ %>
-								<span class="replyAuthor"><%=replyList.get(j).getUserId() %></span> <span class="replyContent"><%=replyList.get(j).getContent()%>
-									</span><br>
-									<%}} %>
+								<%
+								replyList = new replyDAO().showReply(clothList.get(i).getNumber());
+								if (replyList != null) {
+									for (int j = 0; j < replyList.size(); j++) {
+								%>
+								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
+								<span class="replyContent"><%=replyList.get(j).getContent()%>
+								</span><br>
+								<%
+								}
+								}
+								%>
 							</div>
 
 
 						</div>
 						<div style="display: inline-block; veritcal-algin: bottom;">
-							
+
 						</div>
 
 					</div>
@@ -193,8 +214,8 @@
 				reuplode</a>
 		</div>
 	</div>
-	
-	
+
+
 	<!-- footer -->
 	<div class="container">
 		<footer class="py-3 my-4">
@@ -205,21 +226,21 @@
 				Company, Inc</p>
 		</footer>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<script>
 	  <%if (info == null) {%>
       function Change(e){
@@ -267,7 +288,7 @@
       }
       
     <%}%>
-	<%if(info!=null){%>
+	<%if (info != null) {%>
     function replyUpload(e){
     	
     	let clNumber = $(e).attr('value');
@@ -300,6 +321,14 @@
     	
     }
 	<%}%>
+	
+	function enterkey(){
+			if (window.event.keyCode == 13) {
+		    	
+		    }
+		}
+		
+	
 	</script>
 </body>
 </html>

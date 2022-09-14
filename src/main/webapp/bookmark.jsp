@@ -10,10 +10,9 @@
 	pageEncoding="UTF-8"%>
 
 <%
-   userDTO info = (userDTO) session.getAttribute("info");
-   List<clothDTO> clothList = new bookMarkDAO().showBookmark(info.getUserId());
-
-   %>
+userDTO info = (userDTO) session.getAttribute("info");
+List<clothDTO> clothList = new bookMarkDAO().showBookmark(info.getUserId());
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,6 +26,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="bookmark.css">
+<script class="jsbin"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -47,9 +48,9 @@
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 				<form class="d-flex">
 					<div class="btn-group">
-						 <form action="deleteCon.do">
-					<button class="btn btn-primary d-grid mx-auto" type=submit">로그아웃</button>
-				</form>
+						<form action="deleteCon.do">
+							<button class="btn btn-primary d-grid mx-auto" type=submit">로그아웃</button>
+						</form>
 					</div>
 				</form>
 			</div>
@@ -63,22 +64,24 @@
 			<div class="row">
 				<!-- 쇼핑몰 카드 반복부분 -->
 				<%
-				
 				for (int i = 0; i < clothList.size(); i++) {
 					/* 로그인 했을 경우 */
-					
 				%>
 
-				<div class="col-md-auto">
+				<div class="col-md-auto" value="<%=clothList.get(i).getNumber()%>">
 					<div class="card" style="width: 20rem;">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
-							<h5 class="card-title"><%=clothList.get(i).getType() %></h5>
+							<h5 class="card-title"><%=clothList.get(i).getType()%></h5>
 							<p class="card-text">
-								#<%=clothList.get(i).getLook().replace(" ", " #") %></p>
-							<a href="<%=clothList.get(i).getSite() %>" target="_blank"
+								#<%=clothList.get(i).getLook().replace(" ", " #")%></p>
+
+							<a href="<%=clothList.get(i).getSite()%>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
 
+							<button type="button" " target="_blank" class="btn btn-info"
+								onclick="Change(this)" value="<%=clothList.get(i).getNumber()%>">즐겨찾기
+								삭제</button>
 
 
 						</div>
@@ -90,7 +93,9 @@
 
 
 				</div>
-				<%} %>
+				<%
+				}
+				%>
 
 
 
@@ -106,8 +111,7 @@
 
 	<!-- 하단 버튼 -->
 	<div class="d-grid gap-2 col-4 mx-auto">
-		<a class="btn btn-info rebutton" href="Main.jsp" role="button">photo
-			reuplode</a>
+		<a class="btn btn-info rebutton" href="index.jsp" role="button">메인페이지</a>
 	</div>
 	</div>
 
@@ -138,53 +142,40 @@
 
 
 	<script>
-	  <%if (info == null) {%>
-      function Change(e){
-      	alert("북마크 기능을 사용하시려면 로그인을 해주세요");	
-      }
-    <%} else {%>
-         
-          function Change(e){
-      	
-      	let clothNumber = $(e).attr("value");
-       
-      	let userId = '<%=info.getUserId()%>';
-    	
-      	if($(e).attr('src')=="image/star.png"){        	
-      	$(e).attr('src', "image/star.gif");
-     		
-      	console.log(clothNumber);
-      	$.ajax({
-  			//요청 경로 url
-  			url:'BookmarkCon.do',
-  			//요청 데이터(사용자가 입력한 댓글, 게시물번호)
-  		//json 방식 {key:value(실제값)}
-  			data:{'clothNumber' : clothNumber, 'userId' : userId},
-  		//요청 방식 지정 type(html-form태그의 method)(get/post) 따로 지정 안해주면 get방식
-  			type: 'get',
-  			success : (data) => alert("북마크 추가 성공"),
-  			error : (data) => alert("북마크 추가 실패")
-  		});
-      	}else{
-      		$.ajax({
-      			//요청 경로 url
-      			url:'BookmarkDeleteCon.do',
-      			//요청 데이터(사용자가 입력한 댓글, 게시물번호)
-      		//json 방식 {key:value(실제값)}
-      			data:{'clothNumber' : clothNumber, 'userId' : userId},
-      		//요청 방식 지정 type(html-form태그의 method)(get/post) 따로 지정 안해주면 get방식
-      			type: 'get',
-      			success : (data) => alert("북마크 삭제 성공"),
-      			error : (data) => alert("북마크 삭제 실패")
-      		});
-          	$(e).attr('src', "image/star.png");
-          	is_checked=0;
-      	}
-          
-      }
-      
-    <%}%>
 	
-	</script>
+        
+function Change(e){
+     
+     	let clothNumber = $(e).attr("value");
+      
+     	let userId = '<%=info.getUserId()%>';
+
+
+	
+	console.log(clothNumber);
+		$.ajax({
+			//요청 경로 url
+			url:'BookmarkDeleteCon.do',
+			//요청 데이터(사용자가 입력한 댓글, 게시물번호)
+		//json 방식 {key:value(실제값)}
+			data:{'clothNumber' : clothNumber, 'userId' : userId},
+		//요청 방식 지정 type(html-form태그의 method)(get/post) 따로 지정 안해주면 get방식
+			type: 'get',
+			success : (data) => {
+				alert("북마크 삭제 성공");
+				 $(".col-md-auto[value="+$(e).attr("value")+"]").remove();
+			},
+			error : (data) => alert("북마크 삭제 실패")
+		});
+
+
+
+    
+}
+
+
+
+
+</script>
 </body>
 </html>
