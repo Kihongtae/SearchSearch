@@ -309,8 +309,8 @@ background-color: rgba(255, 255, 255, 0.2);
 	<%if (info != null) {%>
     function replyUpload(e){
     	
-    	let clNumber = $(e).attr('value');
-    	let content = $(".replyUpload[idx="+clNumber+"]").val();
+    	let clNumber = $(e).attr('value'); //게시판 번호 받아오는 곳
+    	let content = $(".replyUpload[idx="+clNumber+"]").val(); //댓글 입력 
     
     	let userId = "<%=info.getUserId()%>";
     

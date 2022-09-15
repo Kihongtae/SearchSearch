@@ -59,19 +59,19 @@
                 <form action="UpdateCon.do">
                     <div class="mb-3">
                         <label for="id" class="form-label">닉네임</label>
-                        <input type="text" class="form-control" id="nickname" name="userName">
+                        <input onkeypress="enterKey(event)"type="text" class="form-control" id="nickname" name="userName">
                         
                     </div>
                     <div class="mb-3">
                         <label for="Password1" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="userPw" name="currentPw">
+                        <input onkeypress="enterKey(event)" type="password" class="form-control" id="userPw" name="currentPw">
                     <p id="pwCheck"></p>
                     </div>
                     <div class="mb-3">
                         <label for="Password2" class="form-label">변경할 비밀번호</label>
-                         <input type="password" class="form-control" id="userPw2" name="userPw">
+                         <input onkeypress="enterKey(event)" type="password" class="form-control" id="userPw2" name="userPw">
                     </div>
-                    <input type="hidden" name="userName" value="<%=dto.getUserName()%>">
+                    <input onkeypress="enterKey(event)" type="hidden" name="userName" value="<%=dto.getUserName()%>">
                     
                     <button type="button" onclick="pwCheck()" class="btn btn-primary d-grid col-5 mx-auto">변경하기</button>
                     
@@ -133,6 +133,13 @@
 		error : (data) => alert('fail')
 	});
  }
+ function enterKey(e){
+	 if(e.keyCode==13){
+		 pwCheck();
+	 }
+	 
+ }
+ 
 </script>
 </body>
 </html>

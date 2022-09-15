@@ -49,7 +49,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="Password1" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="userPw" name="userPw2">
+                        <input onkeypress="enterKey(event);" type="password" class="form-control" id="userPw" name="userPw2">
                     </div>
                     <button type="button" onclick="loginCheck()" class="btn btn-primary d-grid col-5 mt-4 mx-auto">로그인</button>
                 </form>
@@ -94,7 +94,16 @@ function loginCheck(){
 	});
  }
  </script>
- 
+     <script type="text/javascript">
+function enterKey(e) {
+    if (e.keyCode == 13) {
+		loginCheck();
+
+
+    }
+}
+
+</script>
 
 </body>
 </html>

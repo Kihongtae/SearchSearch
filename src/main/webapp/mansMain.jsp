@@ -222,7 +222,7 @@ history.scrollRestoration = "manual";
             let type;
             for (let i = 0; i < maxPredictions; i++) {
                 let gage = prediction[i].probability.toFixed(2) * 100;
-                let classPrediction = prediction[i].className + ": " + gage;
+                let classPrediction = prediction[i].className + ": " + gage.toFixed();
                 type = prediction[i].className
                 if (max <= gage) {
                     $('input[name=result]').attr('value', type)
@@ -245,10 +245,13 @@ history.scrollRestoration = "manual";
         	
         		}
     	
+        
 
      
        
     </script>
+    
+
 
 </body>
 </html>

@@ -42,7 +42,7 @@
                         <label for="id" class="form-label">아이디</label>
                         
                       
-                        <input type="text" class="form-control" name="userId">
+                        <input onkeypress="enterKey2(event)"type="text" class="form-control" name="userId">
                         
                           <!-- 아이디 중복 체크 부분  -->
                         <p id="idCheck"></p>
@@ -53,11 +53,11 @@
                     
                     <div class="mb-3">
                         <label for="Password1" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="userPW" name="userPw">
+                        <input onkeypress="enterKey(event)" type="password" class="form-control" id="userPW" name="userPw">
                     </div>
                     <div class="mb-3">
                         <label for="nickname" class="form-label">닉네임</label>
-                        <input type="text" class="form-control" id="userName" name="userName">
+                        <input onkeypress="enterKey(event)" type="text" class="form-control" id="userName" name="userName">
                     </div>
                     <button type="button" id = "join" class="btn btn-primary d-grid col-5 mx-auto">가입하기</button>
                     <a class="btn btn-primary d-grid col-5 mx-auto" href="Login.jsp" role="button">기존 회원 로그인</a>
@@ -164,7 +164,83 @@
              })
              
           });
+         function enterKey(e) {
+        	     if (e.keyCode == 13) {
+        		 let userId = $('input[name=userId]').val();
+                 let userPw = $('input[name=userPw]').val();
+                 let userName = $('input[name=userName]').val();
+                 
+                 //ajax사용해서 비동기통신으로 아이디가 있는지 없는지 체크 후 결과값 받아오기
+                 $.ajax({
+                    // url : 어디와 통신을 할 것인지? action에 작성하는 값과 비슷 
+                    url : "JoinCon.do",
+                    //data : url작성한 곳에 데이터를 보낼때 
+                    data :{
+                       "userId" : userId,
+                       "userPw" : userPw,
+                       "userName" : userName
+                    },
+                    //dataType : 결과 값을 어떤 타입으로 받아올 것 인지(jason,text등등)
+                    dataType : "text",
+                    // success : 통신 성공시 
+                    success : function(result){
+                       if(result == 'fail'){
+                          alert('중복되는 아이디로는 회원가입을 할 수 없습니다.');
+                          console.log("중복 체크 성공");
+                       }else{
+                    	   alert('회원가입이 성공하였습니다!');
+                          location.href = "index.jsp";
+                       }
+                    },
+                    // error : 통신 실패시
+                    error : function(e){
+                    	if(userId!=''&&userPw!=''&&userName!=''){
+                    	alert('중복되는 아이디로는 회원가입을 할 수 없습니다.');
+                    	}else{
+                    		alert('회원가입을 하기 위해서는 모든 칸을 채워야합니다.');
+                    	}
+                    }
+                 })
+
+
+        	     }
+        	 }
          
+         function enterKey2(e) {
+        	 
+        	 var userId = $('input[name=userId]').val();
+        	 
+        	     if (e.keyCode == 13) {
+        		 $.ajax({
+                     // url : 어디와 통신을 할 것인지? action에 작성하는 값과 비슷 
+                     url : "idCheckCon.do",
+                     //data : url작성한 곳에 데이터를 보낼때 
+                     data :{
+                        "userId" : userId 
+                     },
+                     //dataType : 결과 값을 어떤 타입으로 받아올 것 인지(jason,text등등)
+                     dataType : "text",
+                     // success : 통신 성공시 
+                     success : function(result){
+                        if(result == 'true'){
+                           $('#idCheck').html("아이디가 중복됩니다");
+                           $('#idCheck').attr('style', 'color:red');
+                           console.log("중복 체크 성공");
+                        }else{
+                           $('#idCheck').html("중복되는 아이디가 없습니다");
+                           $('#idCheck').attr('style', 'color:blue');
+                        }
+                     },
+                     // error : 통신 실패시
+                     error : function(e){
+                        alert("실패");
+                        console.log(e)
+                     }
+                  })
+
+
+        	     }
+        	 }
          </script>
 
 </body>
