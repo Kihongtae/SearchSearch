@@ -25,9 +25,10 @@
 <script class="jsbin"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <style>
-.card{
-background-color: rgba(255, 255, 255, 0.2);
+.card {
+	background-color: rgba(255, 255, 255, 0.2);
 }
+
 .row {
 	margin: auto;
 	margin-left: 100px;
@@ -65,20 +66,26 @@ background-color: rgba(255, 255, 255, 0.2);
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 				<form class="d-flex">
-				<%if(info!=null){ %>
+					<%
+					if (info != null) {
+					%>
 					<div class="btn-group">
-					 <a class="btn btn-primary d-grid mx-auto"
-							href="bookmark.jsp" role="button">즐겨찾기</a>
-							<div class="btn-group">
-					 <a class="btn btn-primary d-grid mx-auto"
-							href="deleteCon.do" role="button">로그아웃</a>
-					</div>
-					<%}else{	%>
-					<div class="btn-group">
-					 <a class="btn btn-primary d-grid mx-auto"
-							href="Login.jsp" role="button">로그인</a>
-					</div>
-					<%} %>
+						<a class="btn btn-primary d-grid mx-auto" href="bookmark.jsp"
+							role="button">즐겨찾기</a>
+						<div class="btn-group">
+							<a class="btn btn-primary d-grid mx-auto" href="deleteCon.do"
+								role="button">로그아웃</a>
+						</div>
+						<%
+						} else {
+						%>
+						<div class="btn-group">
+							<a class="btn btn-primary d-grid mx-auto" href="Login.jsp"
+								role="button">로그인</a>
+						</div>
+						<%
+						}
+						%>
 					
 				</form>
 			</div>
@@ -98,7 +105,8 @@ background-color: rgba(255, 255, 255, 0.2);
 				%>
 
 				<div class="col-md-auto">
-					<div class="card" style="width: 20rem;">
+					<div class="card" style="width: 20rem;"
+						value="<%=clothList.get(i).getNumber()%>">
 						<img src="./image/<%=clothList.get(i).getFilename()%>.jpg">
 
 						<div class="card-body" value="<%=clothList.get(i).getNumber()%>">
@@ -107,7 +115,7 @@ background-color: rgba(255, 255, 255, 0.2);
 								#<%=clothList.get(i).getLook().replace(" ", " #")%></p>
 							<a href="<%=clothList.get(i).getSite()%>" target="_blank"
 								class="btn btn-info">쇼핑몰 보러가기</a>
-							<div style="margin-top:3px;"class="bookmark checked">
+							<div style="margin-top: 3px;" class="bookmark checked">
 								<%
 								//(로그인상태) 북마크 등록을 해놓았을 경우
 								bookMarkDTO bookMark = new bookMarkDTO(info.getUserId(), clothList.get(i).getNumber());
@@ -149,7 +157,7 @@ background-color: rgba(255, 255, 255, 0.2);
 
 						</div>
 						<div style="display: inline-block; veritcal-algin: bottom;">
-							<input onkeyup="enterkey()"class="replyUpload"
+							<input onkeyup="enterkey()" class="replyUpload"
 								style="display: inline-block; veritcal-algin: bottom; width: 100%"
 								type="text" idx="<%=clothList.get(i).getNumber()%>"
 								placeholder="한줄 평을 입력해주세요">
@@ -195,6 +203,7 @@ background-color: rgba(255, 255, 255, 0.2);
 								if (replyList != null) {
 									for (int j = 0; j < replyList.size(); j++) {
 								%>
+								<span><%=replyList.size() %></span>
 								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
 								<span class="replyContent"><%=replyList.get(j).getContent()%>
 								</span><br>
