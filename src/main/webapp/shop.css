@@ -107,11 +107,16 @@ margin-bottom: 5px;
 border-radius: 4px;
 border: 2px solid #BDBDBD;
 box-shadow: 1px 1px 2px rgb(213, 213, 213);
-padding: 1px;
-color:#545454;
-width : 100px;
+width : 150px;
 margin: auto;
+margin-left: 80px;
+background-color: #DEDEDE;
+color: #104a8c;
+padding: 3px;
 }
-
+#buttoncss:hover{
+	background-color: #104a8c; 
+	color: white;
+}
 
 
