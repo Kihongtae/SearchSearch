@@ -142,12 +142,12 @@
 
 								<%
 								replyList = new replyDAO().showReply(clothList.get(i).getNumber());
-								if (replyList != null) {
-									for (int j = 0; j < replyList.size(); j++) {
+								if (replyList != null) {%>
+									<span>댓글 <%=replyList.size() %>개</span><br>
+									<%for (int j = 0; j < replyList.size(); j++) {
 								%>
 								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
-								<span class="replyContent"><%=replyList.get(j).getContent()%>
-								</span><br>
+								<span class="replyContent"><%=replyList.get(j).getContent()%></span><br>
 								<%
 								}
 								}
@@ -201,9 +201,10 @@
 								<%
 								replyList = new replyDAO().showReply(clothList.get(i).getNumber());
 								if (replyList != null) {
-									for (int j = 0; j < replyList.size(); j++) {
+									%><span>댓글 <%=replyList.size() %>개</span><br>
+									<%for (int j = 0; j < replyList.size(); j++) {
 								%>
-								<span><%=replyList.size() %></span>
+							
 								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
 								<span class="replyContent"><%=replyList.get(j).getContent()%>
 								</span><br>
