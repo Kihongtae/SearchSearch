@@ -101,6 +101,9 @@
 				<%
 				for (int i = 0; i < clothList.size(); i++) {
 					/* 로그인 했을 경우 */
+
+					replyList = new replyDAO().showReply(clothList.get(i).getNumber());
+
 					if (info != null) {
 				%>
 
@@ -137,14 +140,28 @@
 
 
 							</div>
+							<div class="replyBox2" value="<%=clothList.get(i).getNumber()%>">
+								<%
+								if (replyList != null) {
+								%>
+								<span class="replynum">댓글
+								</span><br>
+								<%
+								} else {
+								%>
+								<span class="replynum">댓글 </span><br>
+								<%
+								}
+								%>
+							</div>
 							<!-- 댓글 영역 -->
 							<div class="replyBox" value=<%=clothList.get(i).getNumber()%>>
 
 								<%
-								replyList = new replyDAO().showReply(clothList.get(i).getNumber());
-								if (replyList != null) {%>
-									<span>댓글 <%=replyList.size() %>개</span><br>
-									<%for (int j = 0; j < replyList.size(); j++) {
+								if (replyList != null) {
+								%>
+								<%
+								for (int j = 0; j < replyList.size(); j++) {
 								%>
 								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
 								<span class="replyContent"><%=replyList.get(j).getContent()%></span><br>
@@ -196,15 +213,29 @@
 
 
 							</div>
+							<div>
+								<%
+								if (replyList != null) {
+								%>
+								<span class="replynum">댓글 
+								</span><br>
+								<%
+								} else {
+								%>
+								<span class="replynum">댓글</span><br>
+								<%
+								}
+								%>
+							</div>
 							<!-- 댓글 영역 -->
 							<div>
 								<%
-								replyList = new replyDAO().showReply(clothList.get(i).getNumber());
 								if (replyList != null) {
-									%><span>댓글 <%=replyList.size() %>개</span><br>
-									<%for (int j = 0; j < replyList.size(); j++) {
+								
+								
+								for (int j = 0; j < replyList.size(); j++) {
 								%>
-							
+
 								<span class="replyAuthor"><%=replyList.get(j).getUserId()%></span>
 								<span class="replyContent"><%=replyList.get(j).getContent()%>
 								</span><br>
@@ -345,6 +376,8 @@
 			error : (data) => alert('fail')
 		});
     	
+    	let reply = $('.replyBox2[value='+parseInt(clNumber)+'] > span');
+    	console.dir(reply);
     	
     	
     }
